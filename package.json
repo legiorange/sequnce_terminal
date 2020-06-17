@@ -1,0 +1,13 @@
+{
+  "name": "sequncee",
+  "version": "1.0.0",
+  "description": "team website",
+  "main": "index.html",
+  "author": "legiorange",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^3.9.5",
+    "xterm": "^4.7.0",
+    "xterm-addon-fit": "^0.4.0"
+  }
+}
