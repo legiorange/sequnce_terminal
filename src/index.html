@@ -19,15 +19,19 @@
             <div class="col-md-12 column ">
               <nav class="navbar navbar-expand-md   nav-light">
                 <ul class="navbar-nav mx-auto">
-                  <li class="nav-item "><a href="#" class="nav-link ">**</a></li> 
+                  <li class="nav-item "><a href="#" class="nav-link ">*(XE)*</a></li> 
                        <li class="nav-item"><a href="#" class="nav-link">解决方案</a></li> 
+                       <li class="nav-item"><a href="#" class="nav-link">产品</a></li> 
                             <li class="nav-item"><a href="#" class="nav-link ">关于</a></li> 
                              </ul> 
                              </nav>
             </div>
           </div>
+          <div id="terminal"></div>
+
+        
         </div>
-      <div id="terminal"></div>
+ 
       <script>
       // import { FitAddon } from 'xterm-addon-fit';
 
@@ -41,8 +45,8 @@
         // tabStopWidth: 8, //制表宽度
         screenKeys: true, //
         theme: {
-            foreground: 'yellow', //字体
-            background: '#060101', //背景色
+            foreground: 'azure', //字体
+            background: '#121212', //背景色
             cursor: 'help',//设置光标
         }
         });
@@ -63,20 +67,20 @@
         term.writeln('有关某个命令的信息，请键入 HELP')        
         }
         function printing_init_old(){
-        // term.write('_|      _|  _|_|_|_|  ')
-        // term.write('\n')
-        // term.write('  _|  _|    _|        ')
-        // term.write('\n')
-        // term.write('    _|      _|_|_|    ')
-        // term.write('\n')
-        // term.write('  _|  _|    _|        ')
-        // term.write('\n')
-        // term.write('_|      _|  _|_|_|_|  ')
-        // term.write('\n')
-        // term.writeln('')
-        // term.writeln('\n')
-        // term.writeln('Welcome to \x1B[1;3;31mSequnceE\x1B[0m');
-        // term.writeln('有关某个命令的信息，请键入 HELP')
+        term.write('_|      _|  _|_|_|_|  ')
+        term.write('\n')
+        term.write('  _|  _|    _|        ')
+        term.write('\n')
+        term.write('    _|      _|_|_|    ')
+        term.write('\n')
+        term.write('  _|  _|    _|        ')
+        term.write('\n')
+        term.write('_|      _|  _|_|_|_|  ')
+        term.write('\n')
+        term.writeln('')
+        term.writeln('\n')
+        term.writeln('Welcome to \x1B[1;3;31mSequnceE\x1B[0m');
+        term.writeln('有关某个命令的信息，请键入 HELP')
         }
 
         term._initialized = true;
@@ -137,8 +141,33 @@
         term.write('\r\nguest@SequnceE:~$ ');
     }
 
-    function echo(inputer) { 
+    function inputwords(inputer){
       inputer=inputer.toLowerCase();
+     return inputer.trim();
+
+    }
+    function printtitle(){
+        term.write('\n')
+        term.writeln('\x1B[1;3;31m..............................................................................\x1B[0m')
+       
+        // term.writeln('################################################################################')\x1B[0m\x1B[0m
+        // term.writeln('################################################################################')
+        term.writeln('\x1B[1;3;31m..######..########..#######..##.....##.##....##..######..########....########.\x1B[0m')
+        term.writeln('\x1B[1;3;31m.##....##.##.......##.....##.##.....##.###...##.##....##.##..........##.......\x1B[0m')
+        term.writeln('\x1B[1;3;31m.##.......##.......##.....##.##.....##.####..##.##.......##..........##.......\x1B[0m')
+        term.writeln('\x1B[1;3;31m..######..######...##.....##.##.....##.##.##.##.##.......######......######...\x1B[0m')
+        term.writeln('\x1B[1;3;31m.......##.##.......##..##.##.##.....##.##..####.##.......##..........##.......\x1B[0m')
+        term.writeln('\x1B[1;3;31m.##....##.##.......##....##..##.....##.##...###.##....##.##..........##.......\x1B[0m')
+        term.writeln('\x1B[1;3;31m..######..########..#####.##..#######..##....##..######..########....########.\x1B[0m')
+        term.writeln('\x1B[1;3;31m..............................................................................\x1B[0m')
+
+        // term.writeln('Welcome to \x1B[1;3;31mSequnceE\x1B[0m');
+        // term.writeln('有关某个命令的信息，请键入 HELP')
+        }
+
+    function echo(inputer) { 
+      // inputer=inputer.toLowerCase();
+      inputer= inputwords(inputer) 
       switch (inputer) {
         case 'help':
           term.writeln('')
@@ -157,8 +186,13 @@
           term.writeln('email: bGVnaW9yYW5nZUAxNjMuY29t')
           term.writeln('pls send your CV.')
           break;
-        case 'clean':
-          term.clean()
+        case 'clear':
+          term.clear()
+
+
+          break;
+        case 'ts':
+        printtitle()
 
 
           break;
@@ -209,6 +243,9 @@
     }
 a {
   color: azure
+}
+a:hover{
+  color: orange;
 }
     /* .xterm{
        height: 100%;
